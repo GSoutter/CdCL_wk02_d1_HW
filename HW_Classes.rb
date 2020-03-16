@@ -27,4 +27,8 @@ class Student
     return "I can talk!"
   end
 
+  def say_fav_lang(fav_lang)
+    return "I love "+fav_lang
+  end
+
 end

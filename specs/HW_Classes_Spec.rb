@@ -26,7 +26,14 @@ class TestBankAccount < MiniTest::Test
     @student.set_cohort("Alice")
     assert_equal("Alice", @student.get_cohort)
   end
-  
 
+  def test_student_talk
+    assert_equal("I can talk!", @student.talk)
+  end
+
+  def test_student_favourite_language
+    result = @student.say_fav_lang("Python")
+    assert_equal("I love Python", result)
+  end
 
 end
