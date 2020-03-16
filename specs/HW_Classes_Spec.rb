@@ -94,6 +94,34 @@ class TestBankAccount < MiniTest::Test
     assert_equal(2, @book_libary.get_books.length)
   end
 
+  def test_book_library_book_info
+    result = {
+      title: "surely_your_joking_mr_feynman",
+      rental_details: {student_name: "Greg", date: "01/12/11"}
+      }
+    assert_equal(result, @book_libary.book_info("surely_your_joking_mr_feynman"))
+  end
+
+  def test_book_library_book_info
+    result = {student_name: "Greg", date: "01/12/11"}
+    assert_equal(result, @book_libary.book_info_rental("surely_your_joking_mr_feynman"))
+  end
+
+  def test_book_library_add_book
+    result = {
+      title: "Harry Potter",
+      rental_details: {student_name: "", date: ""}
+      }
+    @book_libary.add_book("Harry Potter")
+    assert_equal(result, @book_libary.book_info("Harry Potter"))
+  end
+
+  def test_book_libary_edit_rental
+    result = {student_name: "James", date: "01/12/12"}
+
+    @book_libary.edit_rental("lord_of_the_rings", "James", "01/12/12")
+    assert_equal(result, @book_libary.book_info_rental("lord_of_the_rings"))
+  end
 
 
 end

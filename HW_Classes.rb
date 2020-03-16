@@ -102,4 +102,38 @@ class BookLibrary
     return @books
   end
 
+  def book_info(book_name)
+    for book in @books
+      if book[:title] == book_name
+        return book
+      end
+    end
+  end
+
+  def book_info_rental(book_name)
+    return book_info(book_name)[:rental_details]
+  end
+
+  def add_book(book_name)
+    book_blank = {
+      title: "",
+      rental_details: {student_name: "", date: ""}
+      }
+    book_blank[:title] = book_name
+
+    @books.push(book_blank)
+  end
+
+  def edit_rental(book_name, student_name, date)
+    for book in @books
+      if book[:title] == book_name
+        book[:rental_details][:student_name] = student_name
+        book[:rental_details][:date] = date
+      end
+    end
+  end
+
+
+
+
 end
