@@ -32,3 +32,74 @@ class Student
   end
 
 end
+
+
+
+class SportsTeam
+
+  attr_reader :name, :players, :coach
+  attr_writer :coach
+
+  def initialize(name, players, coach)
+    @name = name
+    @players = players
+    @coach = coach
+    @points = 0
+  end
+
+  # def get_name
+  #   return @name
+  # end
+  #
+  # def get_playerss
+  #   return @players
+  # end
+  #
+  # def get_coach
+  #   return @coach
+  # end
+  # def set_coach(name)
+  #   @coach = name
+  # end
+
+
+
+
+  def add_player(player)
+    @players.push(player)
+  end
+
+  def player_check(player)
+    for playa in @players
+      if playa == player
+        return true
+      end
+    end
+    return false
+
+  end
+
+  def get_points()
+    return @points
+  end
+
+  def add_points_win(result)
+    if result == "win"
+      @points += 1
+    end
+  end
+
+end
+
+
+class BookLibrary
+
+  def initialize(books)
+    @books = books
+  end
+
+  def get_books()
+    return @books
+  end
+
+end
